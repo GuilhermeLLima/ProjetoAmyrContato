@@ -1,0 +1,177 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fonte base */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #0f172a;
+  color: #f1f5f9;
+  line-height: 1.6;
+}
+
+/* Container */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Header */
+header {
+  background-color: #05337e;
+  padding: 1.5rem 0;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+header h1 {
+  font-size: 1.6rem;
+  color: #f9fcfb;
+}
+
+nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #10b981;
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 1rem;
+  background: linear-gradient(135deg, #ecf3f1, #059669);
+  color: white;
+  flex-direction: column;
+}
+
+.hero h2 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.btn-cta {
+  background-color: #1e293b;
+  color: #10b981;
+  padding: 0.75rem 2rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-cta:hover {
+  background-color: #10b981;
+  color: #fff;
+}
+
+/* Seções */
+section {
+  padding: 4rem 1rem;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #10b981;
+}
+
+/* Sobre */
+.sobre p {
+  max-width: 700px;
+  font-size: 1.1rem;
+}
+
+/* Projetos */
+.projetos .grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.card {
+  background-color: #1e293b;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 1 1 300px;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.card h3 {
+  color: #10b981;
+  margin-bottom: 0.5rem;
+}
+
+/* Contato */
+.contato a {
+  color: #10b981;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contato a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background-color: #1e293b;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 4rem;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  header .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+}  
