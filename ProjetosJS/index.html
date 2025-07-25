@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio de Projetos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, #f7f8fc, #eef1f5);
+      color: #333;
+      line-height: 1.6;
+    }
+    header, footer {
+      background-color: #1e1e2f;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    h1, h2, h3 {
+      margin-bottom: 1rem;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    section {
+      margin-bottom: 4rem;
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .btn, .btn-link {
+      display: inline-block;
+      background-color: #3b82f6;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      margin-top: 1rem;
+      transition: background 0.3s;
+    }
+    .btn:hover, .btn-link:hover {
+      background-color: #2563eb;
+    }
+    .colors div {
+      padding: 1rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: #fff;
+      font-weight: bold;
+    }
+    .clock {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #1e293b;
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    form input, form textarea, form select {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    form button {
+      width: 100%;
+    }
+    .error-message {
+      color: red;
+      font-size: 0.9rem;
+    }
+    #cpf-display {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+    #conversor {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 2rem;
+     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      max-width: 600px;
+      margin: 2rem auto;
+    }
+
+    #conversor h2 {
+      font-size: 1.75rem;
+      color: #1e293b;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    #conversor input[type="number"],
+    #conversor input[readonly],
+    #conversor select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      background-color: #f8fafc;
+      color: #0f172a;
+      transition: border 0.2s ease;
+    }
+
+    #conversor input:focus,
+    #conversor select:focus {
+      border-color: #3b82f6;
+      outline: none;
+    }
+
+    #conversor button#convert-btn {
+      width: 100%;
+      background-color: #3b82f6;
+      color: #fff;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #conversor button#convert-btn:hover {
+      background-color: #2563eb;
+    }
+
+    #message {
+      margin-top: 1rem;
+      font-weight: 500;
+      text-align: center;
+      color: #334155;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Portfólio - Amyr Guilherme</h1>
+  </header>
+  
+  <main class="container">
+    <section id="citacoes">
+      <h2>Citações Motivacionais</h2>
+      <p class="text"></p>
+      <p class="author"></p>
+      <button id="quoteBtn" class="btn">Nova Citação</button>
+    </section>
+
+    <section id="conversor">
+      <h2>Conversor de Unidades</h2>
+      <input type="number" id="input" placeholder="Valor">
+      <select id="from">
+        <option value="km">Quilômetros</option>
+        <option value="m">Metros</option>
+        <option value="cm">Centímetros</option>
+        <option value="mm">Milímetros</option>
+      </select>
+      <select id="to">
+        <option value="km">Quilômetros</option>
+        <option value="m">Metros</option>
+        <option value="cm">Centímetros</option>
+        <option value="mm">Milímetros</option>
+      </select>
+      <button id="convert-btn" class="btn">Converter</button>
+      <input type="text" id="output" readonly>
+      <p id="message"></p>
+    </section>
+
+    <section id="cores">
+      <h2>Gerador de Cores Aleatórias</h2>
+      <div class="colors"></div>
+      <button id="generate-btn" class="btn">Gerar Cores</button>
+    </section>
+
+    <section id="relogio">
+      <h2>Relógio</h2>
+      <div class="clock">
+        <span class="hours">00</span>:<span class="minutes">00</span>:<span class="seconds">00</span>
+      </div>
+    </section>
+
+    <section id="cpf-generator">
+      <h2>Gerador de CPF</h2>
+      <p id="cpf-display">000.000.000-00</p>
+      <button id="gerar-cpf" class="btn">Gerar CPF</button>
+      <button id="copiar-cpf" class="btn">Copiar CPF</button>
+    </section>
+
+    <section id="galeria">
+        <h2>Galeria de Imagens (Carrossel)</h2>
+        <div class="carousel" style="position: relative; overflow: hidden; width: 100%; max-width: 600px; margin: auto;">
+            <div class="carousel-track" style="display: flex; transition: transform 0.5s ease;">
+                <img src="img1.jpg" class="carousel-image" alt="Imagem 1" style="min-width: 100%;">
+                <img src="img2.jpg" class="carousel-image" alt="Imagem 2" style="min-width: 100%;">
+                <img src="img3.jpg" class="carousel-image" alt="Imagem 3" style="min-width: 100%;">
+            </div>
+            <button id="prev" style="position:absolute; top:50%; left:10px; transform:translateY(-50%); background:#333; color:#fff; border:none; padding:0.5rem 1rem; cursor:pointer;">&#10094;</button>
+            <button id="next" style="position:absolute; top:50%; right:10px; transform:translateY(-50%); background:#333; color:#fff; border:none; padding:0.5rem 1rem; cursor:pointer;">&#10095;</button>
+        </div>
+    </section>
+
+    <section id="contato">
+      <h2>Formulário de Contato</h2>
+      <form>
+        <div>
+          <input type="text" id="nome" placeholder="Nome">
+          <span class="error-message"></span>
+        </div>
+        <div>
+          <input type="email" id="email" placeholder="E-mail">
+          <span class="error-message"></span>
+        </div>
+        <div>
+          <input type="text" id="assunto" placeholder="Assunto">
+          <span class="error-message"></span>
+        </div>
+        <div>
+          <textarea id="mensagem" placeholder="Mensagem"></textarea>
+          <span class="error-message"></span>
+        </div>
+        <button type="submit" class="btn">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Amyr Guilherme. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="citaçoes.js"></script>
+  <script src="conversor.js"></script>
+  <script src="cores.js"></script>
+  <script src="relogio.js"></script>
+  <script src="formulario.js"></script>
+  <script src="cpf.js"></script>
+  <script>
+  const track = document.querySelector(".carousel-track");
+  const slides = document.querySelectorAll(".carousel-image");
+  const prevBtn = document.getElementById("prev");
+  const nextBtn = document.getElementById("next");
+  let currentIndex = 0;
+
+  function updateCarousel() {
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    updateCarousel();
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateCarousel();
+  });
+    </script>
+</body>
+</html>
